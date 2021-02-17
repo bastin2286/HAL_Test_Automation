@@ -1,0 +1,2 @@
+i2ctest: test_I2C_read.c /home/pi/HAL_Testing/interface_application/I2C.c
+	gcc -o i2ctest test_I2C_read.c /home/pi/HAL_Testing/interface_application/I2C.c /home/pi/HAL_Testing/interface_application/I2C.h -I.
