@@ -57,6 +57,14 @@ pipeline
                 sh '''ssh \'318356@10.10.196.130\' docker run --shm-size=1g -e BROWSER=firefox -v /home/318356/HAL_Test_Automation/Host_SW/Test_Scripts:/opt/robotframework/tests:Z -v /home/318356/hal_util_scripts:/opt/robotframework/reports:Z -v /home/318356/HAL_Test_Automation/logs:/var/log:Z ppodgorsek/robot-framework:latest'''
             }
         }
-        
+         stage('Declarative Post Actions') 
+	{
+            agent any
+            steps  
+            {
+               sh '''ssh \'318356@10.10.196.130\' /home/hal_util_scripts/copy_xml.sh'''
+	       robot archiveDirName: 'robot-plugin', outputPath: '*.xml', overwriteXAxisLabel: ''
+            }
+        }
     }
 }
