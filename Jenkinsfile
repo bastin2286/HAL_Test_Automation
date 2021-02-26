@@ -63,7 +63,7 @@ pipeline
             steps  
             {
                sh '''ssh \'318356@10.10.196.130\' /home/hal_util_scripts/copy_xml.sh'''
-	       robot archiveDirName: 'robot-plugin', outputPath: '*.xml', overwriteXAxisLabel: ''
+	       robot archiveDirName: 'robot-plugin', outputPath: 'output.xml', overwriteXAxisLabel: ''
             }
         }
     }
