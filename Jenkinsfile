@@ -45,7 +45,7 @@ pipeline
             agent any
             steps  
             {
-                sh '''ssh \'318356@10.10.196.130\' docker run --shm-size=1g -e BROWSER=firefox -v /var/lib/docker/volumes/volHAL/_data/HAL_Test_Automation/Host_SW/Deploy:/opt/robotframework/tests:Z -v /home/318356/hal_util_scripts:/opt/robotframework/reports:Z ppodgorsek/robot-framework:latest'''
+                sh '''ssh \'318356@10.10.196.130\' docker run --shm-size=1g -e BROWSER=firefox -v /home/318356/HAL_Test_Automation/Host_SW/Deploy:/opt/robotframework/tests:Z -v /home/318356/hal_util_scripts:/opt/robotframework/reports:Z -v /home/318356/HAL_Test_Automation/logs:/var/log:Z ppodgorsek/robot-framework:latest'''
             }
         }
 	    
@@ -54,7 +54,7 @@ pipeline
             agent any
             steps  
             {
-                sh '''ssh \'318356@10.10.196.130\' docker run --shm-size=1g -e BROWSER=firefox -v /var/lib/docker/volumes/volHAL/_data/HAL_Test_Automation/Host_SW/Test_Scripts:/opt/robotframework/tests:Z -v /home/318356/hal_util_scripts:/opt/robotframework/reports:Z ppodgorsek/robot-framework:latest'''
+                sh '''ssh \'318356@10.10.196.130\' docker run --shm-size=1g -e BROWSER=firefox -v /home/318356/HAL_Test_Automation/Host_SW/Test_Scripts:/opt/robotframework/tests:Z -v /home/318356/hal_util_scripts:/opt/robotframework/reports:Z /home/318356/HAL_Test_Automation/logs:/var/log:Z ppodgorsek/robot-framework:latest'''
             }
         }
         
