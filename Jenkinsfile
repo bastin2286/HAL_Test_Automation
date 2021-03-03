@@ -45,7 +45,8 @@ pipeline
             agent any
             steps  
             {
-                sh '''ssh \'318356@10.10.196.130\' docker run --shm-size=1g -e BROWSER=firefox -v /home/318356/HAL_Test_Automation/Host_SW/Deploy:/opt/robotframework/tests:Z -v /home/318356/hal_util_scripts:/opt/robotframework/reports:Z -v /home/318356/HAL_Test_Automation/logs:/var/log:Z ppodgorsek/robot-framework:latest'''
+		 sh '''ssh \'318356@10.10.196.130\' docker pull localhost:5000/haldeploy:v1'''   
+                 sh '''ssh \'318356@10.10.196.130\' docker run --name halDeploy -v volHAL:/src localhost:5000/haldeploy:v1'''
             }
         }
 	    
@@ -54,7 +55,8 @@ pipeline
             agent any
             steps  
             {
-                sh '''ssh \'318356@10.10.196.130\' docker run --shm-size=1g -e BROWSER=firefox -v /home/318356/HAL_Test_Automation/Host_SW/Test_Scripts:/opt/robotframework/tests:Z -v /home/318356/hal_util_scripts:/opt/robotframework/reports:Z -v /home/318356/HAL_Test_Automation/logs:/var/log:Z ppodgorsek/robot-framework:latest'''
+                 sh '''ssh \'318356@10.10.196.130\' docker pull localhost:5000/haltestbuild:v1'''   
+                 sh '''ssh \'318356@10.10.196.130\' docker run --name halBuild -v volHAL:/src localhost:5000/haltestbuild:v1'''
             }
         }
          stage('Declarative Post Actions') 
@@ -64,6 +66,10 @@ pipeline
             {
                sh '''ssh \'318356@10.10.196.130\' /home/hal_util_scripts/copy_xml.sh'''
 	       robot archiveDirName: 'robot-plugin', outputPath: '', overwriteXAxisLabel: ''
+		sh '''ssh \'318356@10.10.196.130\' docker stop halDeploy'''
+		sh '''ssh \'318356@10.10.196.130\' docker rm halDeploy'''
+		sh '''ssh \'318356@10.10.196.130\' docker stop halBuild'''
+		sh '''ssh \'318356@10.10.196.130\' docker rm halBuild'''
             }
         }
     }
