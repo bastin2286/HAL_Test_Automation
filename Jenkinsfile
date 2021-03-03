@@ -45,8 +45,8 @@ pipeline
             agent any
             steps  
             {
-		 sh '''ssh \'318356@10.10.196.130\' docker pull localhost:5000/haldeploy:v1'''   
-                 sh '''ssh \'318356@10.10.196.130\' docker run --name halDeploy -v volHAL:/src localhost:5000/haldeploy:v1'''
+		 sh '''ssh \'318356@10.10.196.130\' docker pull localhost:5000/haldeploy:v2'''   
+                 sh '''ssh \'318356@10.10.196.130\' docker run --name halDeploy -v volHAL:/src localhost:5000/haldeploy:v2'''
             }
         }
 	    
