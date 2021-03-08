@@ -10,7 +10,7 @@ Transfer the file to the target test folder
     #    Get File    remotefile.txt    localfile.txt
     #    Get File    /home/tyler/    mytylerdir/    recursive=True
     #    Close Connection
-    Open Connection    proxy71.rt3.io    port=35998    username=pi    password=thereisnopassword
+    Open Connection    proxy61.rt3.io    port=30027    username=pi    password=thereisnopassword
     #Put File    Sample1.txt    /home/pi/Nandu_Test
     put directory    /var/jenkins_home/HAL_Test_Automation/Hardware_SW/DUT/interface_application    /home/pi/HAL_Test_Automation1
     put directory    /var/jenkins_home/HAL_Test_Automation/Hardware_SW/DUT/test    /home/pi/HAL_Test_Automation1
