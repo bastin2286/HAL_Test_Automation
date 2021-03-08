@@ -5,8 +5,8 @@ Suite Setup       Open Connection And Log In
 Suite Teardown    Close All Connections
 Library           SSHLibrary
 *** Variables ***
-${HOST}           proxy71.rt3.io
-${PORT}           35406
+${HOST}           proxy61.rt3.io
+${PORT}           30027
 ${USERNAME}       pi
 ${PASSWORD}       thereisnopassword
 ${TestPath}       /home/pi/HAL_Testing/test/interface_spi_test
