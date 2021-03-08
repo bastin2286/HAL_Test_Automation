@@ -46,7 +46,7 @@ pipeline
             steps  
             {
 		 sh '''ssh \'318356@10.10.196.130\' docker pull localhost:5000/haldeploy:v2'''   
-                 sh '''ssh \'318356@10.10.196.130\' docker run --name halDeploy -p 33534:33534 -v volHAL:/src localhost:5000/haldeploy:v2'''
+                 sh '''ssh \'318356@10.10.196.130\' docker run --name halDeploy -p 30180:30180 -v volHAL:/src localhost:5000/haldeploy:v2'''
             }
         }
 	    
@@ -56,7 +56,7 @@ pipeline
             steps  
             {
                  sh '''ssh \'318356@10.10.196.130\' docker pull localhost:5000/haltestbuild:v1'''   
-                 sh '''ssh \'318356@10.10.196.130\' docker run --name halBuild -p 33534:33534 -v volHAL:/src localhost:5000/haltestbuild:v1'''
+                 sh '''ssh \'318356@10.10.196.130\' docker run --name halBuild -p 30180:30180 -v volHAL:/src localhost:5000/haltestbuild:v1'''
             }
         }
          stage('Declarative Post Actions') 
