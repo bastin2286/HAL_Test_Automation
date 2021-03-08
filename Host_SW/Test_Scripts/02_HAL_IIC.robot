@@ -8,8 +8,10 @@ Suite Setup       Open Connection And Log In
 Suite Teardown    Close All Connections
 Library           SSHLibrary
 *** Variables ***
-${HOST}           proxy61.rt3.io    
-${PORT}           30027
+#HOST}           proxy61.rt3.io    
+#${PORT}           30027
+${HOST}           192.168.43.246    
+${PORT}           22
 ${USERNAME}       pi
 ${PASSWORD}       thereisnopassword
 ${TestPath}       /home/pi/HAL_Testing/test/interface_i2c_test
