@@ -97,3 +97,8 @@ SPI_TestCase09
     Execute Command    cd    ${TestPath}/make
     ${output}=    Execute Command    ${TestPath}/./spitest ${SPI_Command} ${SPI_Chip_Enable} ${SPI_Length}
     Should Contain    ${output}    Invalid command length
+    
+*** Keywords ***
+Open Connection And Log In
+    Open Connection    ${HOST}    port=${PORT}    timeout=30s
+    Login    ${USERNAME}    ${PASSWORD}
