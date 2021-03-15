@@ -11,7 +11,7 @@ ${PORT}           36517
 #${PORT}           22
 ${USERNAME}       pi
 ${PASSWORD}       thereisnopassword
-${TestPath}       /home/pi/HAL_Testing/test/interface_spi_test
+${TestPath}       /home/pi/HAL_Test_Automation1/test/interface_spi_test
 *** Test Cases ***
 SPI_TestCase01
     [Documentation]    SPI Read / Write test cases , Passing values as below
