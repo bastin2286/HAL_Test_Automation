@@ -10,7 +10,7 @@ pipeline
             {  	
 				sh '''ls -la'''
 				sh '''pwd'''
-				sh '''ssh \'318356@10.10.196.130\' docker volume create volHALRobot'''
+				sh '''ssh \'sachin@196.168.43.144\' docker volume create volHALRobot'''
 				
                echo "********Waiting for SCM event - IN PROGRESS***********"
                 /*
@@ -32,7 +32,7 @@ pipeline
 				*/
 				echo "Testing for SCM event - Done"
 				echo "************copying the git update to the volume- IN PROGRESS***********"
-				sh '''ssh \'318356@10.10.196.130\' /home/hal_util_scripts/copy.sh'''
+				sh '''ssh \'sachin@196.168.43.144\' /home/sachin/copy.sh'''
 				echo  "************copying the git update to the volume - DONE ****************"
 				sh '''ls -la'''
 				sh '''pwd'''
@@ -45,8 +45,8 @@ pipeline
             agent any
             steps  
             {
-		 sh '''ssh \'318356@10.10.196.130\' docker pull localhost:5000/haldeploy:v2'''   
-                 sh '''ssh \'318356@10.10.196.130\' docker run --name halDeploy -p 30180:30180 -v volHAL:/src localhost:5000/haldeploy:v2'''
+		 //sh '''ssh \'sachin@196.168.43.144\' docker pull localhost:5000/haldeploy:v2'''   
+                 sh '''ssh \'sachin@196.168.43.144\' docker run --name halDeploy -p 36499:36499 -v volHAL:/src haldeploy'''
             }
         }
 	    
@@ -55,8 +55,8 @@ pipeline
             agent any
             steps  
             {
-                 sh '''ssh \'318356@10.10.196.130\' docker pull localhost:5000/haltestbuild:v1'''   
-                 sh '''ssh \'318356@10.10.196.130\' docker run --name halBuild -p 30180:30180 -v volHAL:/src localhost:5000/haltestbuild:v1'''
+                 //sh '''ssh \'318356@10.10.196.130\' docker pull localhost:5000/haltestbuild:v1'''   
+                 sh '''ssh \'sachin@196.168.43.144\' docker run --name halBuild -p 36499:36499 -v volHAL:/src halbuild'''
             }
         }
          stage('Declarative Post Actions') 
@@ -64,7 +64,7 @@ pipeline
             agent any
             steps  
             {
-               sh '''ssh \'318356@10.10.196.130\' /home/hal_util_scripts/copy_xml.sh'''
+               sh '''ssh \'sachin@196.168.43.144\' /home/hal_util_scripts/copy_xml.sh'''
 	       robot archiveDirName: 'robot-plugin', outputPath: '', overwriteXAxisLabel: ''
 		sh '''ssh \'318356@10.10.196.130\' docker stop halDeploy'''
 		sh '''ssh \'318356@10.10.196.130\' docker rm halDeploy'''
