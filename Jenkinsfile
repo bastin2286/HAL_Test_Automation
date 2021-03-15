@@ -46,7 +46,7 @@ pipeline
             steps  
             {
 		 //sh '''ssh \'sachin@196.168.43.144\' docker pull localhost:5000/haldeploy:v2'''   
-                 sh '''ssh \'sachin@192.168.43.144\' docker run --name halDeploy -p 33386:33386 -v volHAL:/src haldeploy'''
+                 sh '''ssh \'sachin@192.168.43.144\' docker run --name halDeploy -p 36517:36517 -v volHAL:/src haldeploy'''
             }
         }
 	    
@@ -56,7 +56,7 @@ pipeline
             steps  
             {
                  //sh '''ssh \'318356@10.10.196.130\' docker pull localhost:5000/haltestbuild:v1'''   
-                 sh '''ssh \'sachin@192.168.43.144\' docker run --name halBuild -p 33386:33386 -v volHAL:/src halbuild'''
+                 sh '''ssh \'sachin@192.168.43.144\' docker run --name halBuild -p 36517:36517 -v volHAL:/src halbuild'''
             }
         }
          stage('Declarative Post Actions') 
@@ -64,7 +64,7 @@ pipeline
             agent any
             steps  
             {
-               sh '''ssh \'sachin@192.168.43.144\' /home/hal_util_scripts/copy_xml.sh'''
+               sh '''ssh \'sachin@192.168.43.144\' /home/sachin/copy_xml.sh'''
 	       robot archiveDirName: 'robot-plugin', outputPath: '', overwriteXAxisLabel: ''
 		sh '''ssh \'sachin@192.168.43.144\' docker stop halDeploy'''
 		sh '''ssh \'sachin@192.168.43.144\' docker rm halDeploy'''
