@@ -6,7 +6,7 @@ Suite Teardown    Close All Connections
 Library           SSHLibrary
 *** Variables ***
 ${HOST}           proxy60.rt3.io
-${PORT}           36517
+${PORT}           36535
 #${HOST}           192.168.43.246    
 #${PORT}           22
 ${USERNAME}       pi
