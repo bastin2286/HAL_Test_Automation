@@ -14,7 +14,7 @@ ${PORT}           36517
 #${PORT}           22
 ${USERNAME}       pi
 ${PASSWORD}       thereisnopassword
-${TestPath}       /home/pi/HAL_Testing/test/interface_i2c_test
+${TestPath}       /home/pi/HAL_Test_Automation1/test/interface_i2c_test
 ${IIC_Slave_Address1}    8
 ${IIC_Slave_Address2}    9
 ${IIC_Command1}    1
