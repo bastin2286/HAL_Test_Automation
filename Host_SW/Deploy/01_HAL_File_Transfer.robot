@@ -7,11 +7,11 @@ Transfer the file to the target test folder
     [Timeout]    10 minutes
     #Grab Files From My Server
     #    Open Connection    192.168.1.42    username=tyler    password=teapot
-    Open Connection   proxy60.rt3.io    port=36517    username=pi    password=thereisnopassword
+    Open Connection   proxy60.rt3.io    port=36551    username=pi    password=thereisnopassword
     #    Get File    remotefile.txt    localfile.txt
     #    Get File    /home/tyler/    mytylerdir/    recursive=True
     #    Close Connection
-    #Open Connection    proxy61.rt3.io    port=30027    username=pi    password=thereisnopassword
+    #Open Connection    proxy61.rt3.io    port=36551    username=pi    password=thereisnopassword
     #Put File    Sample1.txt    /home/pi/Nandu_Test
     put directory    /src/HAL_Test_Automation/Hardware_SW/DUT/interface_application    /home/pi/HAL_Test_Automation1
     put directory    /src/HAL_Test_Automation/Hardware_SW/DUT/test    /home/pi/HAL_Test_Automation1
