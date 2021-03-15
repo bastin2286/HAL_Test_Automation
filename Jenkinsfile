@@ -45,8 +45,8 @@ pipeline
             agent any
             steps  
             {
-		 //sh '''ssh \'sachin@196.168.43.144\' docker pull localhost:5000/haldeploy:v2'''   
-                 sh '''ssh \'sachin@192.168.43.144\' docker run --name halDeploy -p 36566:36566 -v volHAL:/src haldeploy'''
+		 sh '''ssh \'sachin@192.168.43.144\' docker pull localhost:5000/haldeploy:v1'''   
+                 sh '''ssh \'sachin@192.168.43.144\' docker run --name halDeploy -p 36581:36581 -v volHAL:/src localhost:5000/haldeploy:v1'''
             }
         }
 	    
@@ -55,8 +55,8 @@ pipeline
             agent any
             steps  
             {
-                 //sh '''ssh \'318356@10.10.196.130\' docker pull localhost:5000/haltestbuild:v1'''   
-                 sh '''ssh \'sachin@192.168.43.144\' docker run --name halBuild -p 36566:36566 -v volHAL:/src halbuild'''
+                 sh '''ssh \'sachin@192.168.43.144\' docker pull localhost:5000/halbuild:v1'''   
+                 sh '''ssh \'sachin@192.168.43.144\' docker run --name halBuild -p 36581:36581 -v volHAL:/src localhost:5000/halbuild:v1'''
             }
         }
          stage('Declarative Post Actions') 
