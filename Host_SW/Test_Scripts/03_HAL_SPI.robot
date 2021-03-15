@@ -6,12 +6,12 @@ Suite Teardown    Close All Connections
 Library           SSHLibrary
 *** Variables ***
 ${HOST}           proxy60.rt3.io
-${PORT}           36571
+${PORT}           36581
 #${HOST}           192.168.43.246    
 #${PORT}           22
 ${USERNAME}       pi
 ${PASSWORD}       thereisnopassword
-${TestPath}       /home/pi/HAL_Testing/test/interface_spi_test
+${TestPath}       /home/pi/HAL_Test_Automation1/test/interface_spi_test
 *** Test Cases ***
 SPI_TestCase01
     [Documentation]    SPI Read / Write test cases , Passing values as below
