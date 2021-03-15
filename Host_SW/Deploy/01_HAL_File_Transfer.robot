@@ -7,7 +7,7 @@ Transfer the file to the target test folder
     [Timeout]    10 minutes
     #Grab Files From My Server
     #    Open Connection    192.168.1.42    username=tyler    password=teapot
-    Open Connection   proxy60.rt3.io    port=36499    username=pi    password=thereisnopassword
+    Open Connection   proxy61.rt3.io    port=33386    username=pi    password=thereisnopassword
     #    Get File    remotefile.txt    localfile.txt
     #    Get File    /home/tyler/    mytylerdir/    recursive=True
     #    Close Connection
