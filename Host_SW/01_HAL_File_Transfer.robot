@@ -13,6 +13,6 @@ Transfer the file to the target test folder
     #    Close Connection
     Open Connection    proxy71.rt3.io    port=35998    username=pi    password=thereisnopassword
     #Put File    Sample1.txt    /home/pi/Nandu_Test
-    put directory    HAL_Test_Automation/interface_application    /home/pi/HAL_Testing
+    put directory    HAL_Test_Automation/AUT    /home/pi/HAL_Testing
     put directory    HAL_Test_Automation/test    /home/pi/HAL_Testing
     Close Connection
